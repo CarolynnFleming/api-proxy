@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 export default function PokemonSearch() {
       // you'll need to track your pokemon search results, the loading state, and one form field: name. For this form field, set a real initial values (like 'pikachu') so the form populates with a default value.
-  
+  const [pokemon, setPokemon] = useState([]);
+  const [search, setSearch] = useState('');
+  const [searchby, setSearchBy] = useState('type_1');
   async function handlePokemonSubmit(e) {
     e.preventDefault();
       
