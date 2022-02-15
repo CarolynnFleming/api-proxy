@@ -5,8 +5,8 @@ import kodama from './kodama.gif';
 export default function YelpSearch() {
     // you'll need to track your yelp search results, the loading state, and a form field for location with a default value.
   const [yelpLoading, setYelpLoading] = useState(false);
-  const [yelpSearch, setYelpSearch] = useState('portland or usa');
-  const [yelp, setYelp] = useState([]);
+  const [yelpSearch, setYelpSearch] = useState('detroit or usa');
+  const [businesses, setBusinesses] = useState([]);
 
   async function handleYelpSubmit(e) {
     e.preventDefault();
@@ -18,7 +18,7 @@ export default function YelpSearch() {
 
     const json = await response.json();
 
-    setYelp(json);
+    setBusinesses(json);
     setYelpLoading(false);
     // put the jsonified data in state and set the loading state to false
   }
@@ -36,8 +36,8 @@ export default function YelpSearch() {
 
       {
         yelpLoading
-        ? <img src ={kodama} />
-        : <BusinessList yelp={yelp}/>
+          ? <img src ={kodama} />
+          : <BusinessList businesses={businesses} value={yelpSearch}/>
       }
     </section>
   );
